@@ -1,0 +1,133 @@
+A Collection em Java é um framework que fornece uma arquitetura para armazenar e 
+manipular o grupo de objetos.
+
+Collections (coleções) em Java são tipos especiais de classes utilizadas 
+para manipular grupos de dados do mesmo tipo (por exemplo, coleção de strings), 
+com tamanho flexível.
+
+As Coleções Java podem realizar todas as operações que você executa em dados,
+como pesquisa, classificação, inserção, manipulação e exclusão.
+
+Coleção Java significa uma única unidade de objetos. A estrutura da Coleção 
+Java fornece muitas interfaces (Set, List, Queue, Deque) e classes 
+( ArrayList , Vector, LinkedList , PriorityQueue , HashSet, LinkedHashSet, TreeSet).
+
+As Collections não suportam dados primitivos (int, float, double, entre outros), 
+somente se forem encapsulados dentro de Objetos ou se forem utilizadas as Classes Wrappers 
+para converter os primitivos em Objetos (boolean > Boolean/int > Integer/etc.)
+
+https://docs.oracle.com/javase/tutorial/collections/interfaces/index.html
+https://docs.oracle.com/javase/8/docs/api/?java/util/Collections.html
+
+--------------------------------------------------------------------
+
+## List
+Os elementos em uma lista são ordenados como uma sequência. 
+O usuário pode utilizar o número do índice para acessar um determinado 
+elemento da lista, ou seja, o usuário tem controle total sobre qual elemento 
+está inserido na lista.
+--------------------------------------------------------------------
+
+Array é um tipo de estrutura de dados que contém um número fixo de valores de um único tipo
+
+## ArrayList - ArrayList<T> nomeDoArray = new ArrayList<T>();
+
+é a escolha natural quando for necessário usar um vetor redimensionável, 
+que é muito mais eficiente para leitura, por ser implementado internamente 
+com vetores, o que a torna ideal para o acesso aleatório aos dados armazenados.
+
+Principais métodos:
+add(Objeto)	Adiciona um objeto no final da lista.
+add(Indice,Objeto)	Adiciona um objeto na posição indicada (empurra elementos existentes para a frente)
+get(Indice)	Recupera um objeto pelo índice.
+indexOf(Objeto)	Procura um objeto e retorna índice da primeira ocorrência do objeto.
+set(Indice,Objeto)	Grava um objeto na posição indicada (apaga qualquer outro que ocupava a posição).
+remove(Indice)	Apaga o objeto armazenado na posição indicada pelo índice.
+clear()	Limpa a lista
+size()	Retorna o tamanho da lista (numero de elementos armazenados).
+isEmpty()	Retorna true se a lista está vazia.
+contains(Objeto)	Retorna true se existe uma ocorrência do elemento na lista.
+sort(null)	Ordena os elementos da lista em ordem crescente.
+sort(Comparator.reverseOrder())	Ordena os elementos da lista em ordem decrescente.
+
+----------------------------------------------------------------------
+## LinkedList - LinkedList ll = new LinkedList(); https://www.geeksforgeeks.org/linked-list-in-java/
+
+É uma estrutura de dados linear, na qual os elementos não são armazenados em locais de memória 
+contíguos (sequenciais). Os elementos em uma lista vinculada são vinculados usando ponteiros 
+internamente, que "apontam" para o endereço de Memória do próximo item 
+(SimpleLinkedList - Lista Vinculada simples) ou para o endereço de Memória do próximo item 
+e do item anterior (DoubleLinkedList - Lista Duplamente Vinculada).
+----------------------------------------------------------------------
+
+## Stack
+Uma Pilha é uma estrutura de dados do tipo LIFO:
+O último elemento inserido na pilha é o primeiro elemento que será retirado da pilha." 
+(Last In - First Out).
+----------------------------------------------------------------------
+
+## Queue
+Queue é a implementação da Estrutura de Dados conhecida como fila, onde 
+"O primeiro elemento adicionado, será primeiro elemento a ser retirado da fila" 
+(FIFO - First in, First out).
+----------------------------------------------------------------------
+
+## Set - Set<T> setNumeros = new HashSet<T>();
+
+É uma coleção não ordenada de objetos, que não permite o armazenamento de valores duplicados, 
+ou seja, ela permite apenas valores únicos.
+
+Os objetos que inserimos na Collection Set não serão necessariamente 
+inseridos na mesma ordem e inclusive esta ordem não é constante ao longo do tempo. 
+A Collection Set não possui um Método para obter um Objeto a partir do seu índice, 
+como vimos na Collection List.
+
+Os objetos são inseridos na Collection Set com base em seu Hashcode. 
+O Hashcode é um número inteiro com 7 dígitos, calculado a partir do Método Hashcode(). 
+A partir do Hashcode do Objeto, obtido pelo Método hashcode(), a Collection 
+Set determina a posição onde o Objeto será armazenado no Hashmap. Por se tratar 
+de um número calculado, a posição do elemento será aleatória.
+
+add(Objeto)	Adiciona um Objeto na Collection Set.
+remove(Objeto)	Apaga o Objeto armazenado na Collection Set.
+clear()	Limpa a Collection Set
+size()	Retorna o tamanho da Collection Set (numero de elementos armazenados).
+isEmpty()	Retorna true se a Collection Set está vazia.
+contains(Objeto)	Retorna true se o Objeto existe na Collection Set.
+hashcode()	Retorna o Hashcode do elemento.
+
+----------------------------------------------------------------------
+
+## HashSet
+é a mais rápida de todas, porque ela utiliza internamente uma HashTable e 
+seus elementos não são ordenados. Essa implementação é indicada se você precisa 
+apenas garantir a alta performance sem se importar com a ordem com que os elementos 
+estão ordenados.
+----------------------------------------------------------------------
+
+## TreeSet
+implementa um algoritmo conhecido como árvore. Sua principal característica 
+é que ele é o único Set que implementa a interface SortedSet, logo ela mantém 
+os elementos da Collection ordenados automaticamente, independente da ordem que 
+você inserir os elementos. Essa Ordenação dos elementos tem um custo de performance 
+em relação a implementação HashSet.
+----------------------------------------------------------------------
+
+## LinkedHashSet 
+é um meio termo entre HashSet e TreeSet, ou seja, ela nos proporciona um pouco da 
+performance do HashSet e um pouco do poder de ordenação do TreeSet. Os elementos 
+são mantidos na ordem em que são inseridos na Collection. A implementação LinkedHashSet 
+implementa a Interface NavigableSet, que oferece uma série de Métodos para percorrer e 
+iterar sobre a Collection tanto na ordem crescente, quanto na ordem decrescente.
+-----------------------------------------------------------------------------------------------------
+
+## Map
+ao invés de utilizar números inteiros como índices, 
+objetos são utilizados como chaves para recuperar os 
+elementos armazenados nesta Collection. As chaves não 
+podem se repetir (seguindo o mesmo princípio da interface Set), 
+mas os valores podem ser repetidos para chaves diferentes. 
+Um Map também não possui necessariamente uma ordem definida para percorrer a coleção.
+-------------------------------------------------------------------------------------------
+
+

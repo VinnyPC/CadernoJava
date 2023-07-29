@@ -1,0 +1,77 @@
+Quando os programas Java são executados na JVM, os objetos são criados no heap, que é uma parte da memória dedicada ao 
+programa. Eventualmente, alguns objetos não serão mais necessários. O coletor de lixo localiza esses objetos não 
+utilizados e os exclui para liberar memória.
+
+Em C/C++, um programador é responsável tanto pela criação quanto pela destruição de objetos. Então a gestão 
+de memória é manual.
+
+
+## Como funciona a coleta de lixo em Java?
+
+É automatico
+
+A implementação da coleta de lixo reside na JVM. 
+
+Examina a memória heap, identificando quais objetos 
+estão em uso e quais não estão e excluindo os objetos não utilizados
+
+Um objeto em uso, ou um objeto referenciado, significa que alguma 
+parte do seu programa ainda mantém um ponteiro para esse objeto.
+
+Um objeto não utilizado ou não referenciado não é mais referenciado 
+por nenhuma parte do seu programa. Portanto, a memória usada por um objeto
+ não referenciado pode ser recuperada.
+ 
+ --------------------------------------------------------------
+ 
+ ## Conceitos importantes relacionados à coleta de lixo em Java
+ 
+1. Objetos inacessíveis: Um objeto é considerado inacessível se não 
+contém nenhuma referência a ele. Além disso, observe que os objetos 
+que fazem parte da ilha de isolamento também são inacessíveis.
+
+Integer i = new Integer(4); 
+// o novo objeto Integer pode ser acessado por meio da referência em 'i' 
+i = null; 
+// o objeto Integer não é mais alcançável.
+
+2. Elegibilidade para coleta de lixo: Um objeto é considerado elegível 
+para GC (coleta de lixo) se estiver inacessível. Após i = null , 
+o objeto inteiro 4 na área de heap é adequado para coleta de lixo na imagem ao lado
+
+-----------------------------------------------------
+## Maneiras de tornar um objeto elegível para o Garbage Collector
+
+Mesmo que o programador não seja responsável por destruir objetos inúteis, 
+é altamente recomendável tornar um objeto inacessível (portanto, elegível para GC) 
+se não for mais necessário.
+
+Geralmente, há quatro maneiras de tornar um objeto elegível para coleta de lixo.
+1. Anulando a variável de referência (obj = null)
+2. Reatribuindo a variável de referência
+3. Um objeto criado dentro do método
+4. ilha de isolamento
+
+-----------------------------------------------------
+## Tipos de atividades na coleta de lixo Java
+
+1. Coleta de lixo menor ou incremental: Diz-se que ocorreu quando objetos 
+inacessíveis na memória heap da geração mais jovem são removidos.
+
+2. Coleta de lixo principal ou completa: Diz-se que ocorreu quando os objetos 
+que sobreviveram à coleta de lixo secundária são copiados para a memória heap de
+ geração antiga ou permanente e são removidos. Quando comparada à geração mais jovem, 
+ a coleta de lixo acontece com menos frequência na geração mais velha.
+
+-----------------------------------------------------
+## Maneiras de solicitar que a JVM execute o Garbage Collector
+
+Uma vez que tornamos um objeto elegível para coleta de lixo, ele pode não ser destruído 
+imediatamente pelo coletor de lixo. Sempre que a JVM executar o programa Garbage Collector, 
+apenas o objeto será destruído. Mas não sabemos quando isso pode acontecer.
+
+Podemos solicitar que a JVM execute o Garbage Collector. 
+Existem duas maneiras de fazê-lo porém não são garantidos que a JVM executará o Garbage Collector
+
+1. Usando o método System.gc()
+2. Usando o método Runtime.getRuntime().gc()

@@ -1,0 +1,35 @@
+https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
+
+A função principal de um iterador é permitir que o usuário percorra todos os objetos 
+de qualquer uma da Collections, presentes no Pacote Collections, como se fossem 
+sequências simples de itens de dados.
+
+O Iterator deve ser usado sempre que quisermos enumerar elementos em todas as 
+Interfaces implementadas pelas Collections: Set, List, Queue, Deque, e todas as 
+classes implementadas da interface Map.
+
+Sintaxe: Iterator<T> nomeDoIterator = nomeDaCollection.iterator();
+T pode ser um Objeto, que pode ser de uma Classe Wrapper ou de uma 
+Classe criada pela pessoa desenvolvedora.
+
+
+## Principais Métodos da Interface Iterator
+hasNext()	Retorna verdadeiro se a iteração tiver mais elementos.
+
+next()	Retorna o próximo elemento na iteração. Ele lança a Exceção 
+NoSuchElementException se nenhum outro elemento estiver presente.
+----------------------------------------------------------------------
+
+## As principais vantagens da Interface Iterator são:
+
+1. Podemos utilizar esta Interface com qualquer Collection;
+2. É um Iterador (cursor) universal para Collections.
+3. Os nomes dos métodos são simples e fáceis de usar.
+
+## As principais limitações da Interface Iterator são:
+
+1. O Iterator oferece suporte apenas à iteração de direção direta, ou seja, unidirecional.
+2. O Iterator NÃO oferece suporte à iteração de elementos paralelos, o que significa que 
+oferece suporte apenas à iteração sequencial.
+----------------------------------------------------------------------
+

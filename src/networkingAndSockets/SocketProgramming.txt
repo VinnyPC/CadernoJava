@@ -1,0 +1,68 @@
+Socket programming em Java refere-se à capacidade de criar aplicativos de 
+rede que se comunicam através de conexões de rede usando soquetes (sockets). 
+Um soquete é uma interface de programação que permite a comunicação entre 
+processos em diferentes dispositivos em uma rede.
+
+Os soquetes são usados para estabelecer uma conexão entre um cliente e um servidor para trocar dados. 
+O cliente e o servidor podem ser executados em máquinas diferentes, e a comunicação pode ocorrer 
+através da Internet ou em uma rede local.
+
+Em Java, a API de soquetes faz parte do pacote java.net, e ela fornece classes e interfaces 
+que permitem criar, conectar, enviar e receber dados através de soquetes. As principais classes 
+envolvidas são Socket e ServerSocket.
+
+Para conectar a outra máquina, precisamos de uma conexão de soquete. 
+Uma conexão de soquete significa que as duas máquinas têm informações 
+sobre o local de rede uma da outra (endereço IP) e a porta TCP. 
+A classe java.net.Socket representa um Socket. Para abrir um soquete:
+Socket socket = new Socket(“127.0.0.1”, 5000)
+
+O primeiro argumento –  endereço IP do servidor . ( 127.0.0.1 é o endereço IP do localhost, 
+onde o código será executado na única máquina autônoma).
+O segundo argumento –  TCP Port . (Apenas um número que representa qual aplicativo será 
+executado em um servidor. Por exemplo, HTTP é executado na porta 80. O número da porta pode ser de 0 a 65535)
+
+Socket programming é uma área fundamental para o desenvolvimento de aplicativos de rede, 
+permitindo a comunicação entre processos em dispositivos diferentes através de conexões de rede. 
+Alguns pontos importantes do socket programming incluem:
+
+Comunicação entre processos: Os sockets permitem que os processos de um computador se comuniquem 
+com os processos de outro computador por meio de uma rede. Isso possibilita a troca de dados e 
+informações em tempo real.
+
+Protocolos de rede: Os sockets podem ser usados com vários protocolos de rede, como TCP 
+(Transmission Control Protocol) e UDP (User Datagram Protocol). O TCP oferece uma comunicação 
+confiável e orientada a conexões, enquanto o UDP é mais adequado para comunicações rápidas e 
+não confiáveis.
+
+Cliente e servidor: O modelo cliente-servidor é comum em socket programming. O cliente faz 
+solicitações para o servidor, que processa essas solicitações e responde ao cliente.
+
+Endereçamento e portas: Os sockets são identificados por um endereço IP e um número de porta. 
+O endereço IP indica o dispositivo na rede, enquanto a porta identifica o processo específico 
+em execução nesse dispositivo.
+
+Bloqueio e não-bloqueio: Sockets podem ser configurados como bloqueantes ou não-bloqueantes. 
+Em modo bloqueante, a execução do programa é interrompida até que a operação de leitura ou 
+escrita no socket seja concluída. Em modo não-bloqueante, o programa continua executando outras 
+tarefas e verifica periodicamente se o socket está pronto para leitura ou escrita.
+
+Segurança: Socket programming pode estar sujeito a questões de segurança, como ataques de 
+negação de serviço (DDoS), injeção de código malicioso ou interceptação de dados. É importante 
+implementar medidas de segurança, como criptografia e autenticação, para proteger a comunicação 
+entre os dispositivos.
+
+Escalabilidade: Aplicativos de socket programming precisam ser projetados com a escalabilidade 
+em mente. Isso envolve o gerenciamento eficiente de conexões e recursos para garantir que o 
+aplicativo possa lidar com um grande número de clientes simultâneos.
+
+Tratamento de erros: É essencial implementar tratamentos adequados de erros em socket 
+programming. Problemas de conexão, falhas de rede e outros erros podem ocorrer, e o 
+aplicativo deve ser capaz de lidar com essas situações de maneira adequada.
+
+Multithreading: Aplicativos de socket programming muitas vezes envolvem o uso de threads 
+para gerenciar várias conexões simultâneas. O uso de threads permite que o aplicativo 
+atenda a vários clientes ao mesmo tempo.
+
+Encerramento de conexões: É importante garantir que as conexões de socket sejam 
+devidamente encerradas quando não forem mais necessárias para liberar recursos do sistema.

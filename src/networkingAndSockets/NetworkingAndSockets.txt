@@ -1,0 +1,8 @@
+* Java Networking é um conceito de conectar dois ou mais 
+dispositivos de computação para que possamos compartilhar recursos.
+* A programação de soquete Java fornece facilidade para compartilhar 
+dados entre diferentes dispositivos de computação.
+* Um soquete é um ponto final de um link de comunicação bidirecional 
+entre dois programas em execução na rede. Um soquete é vinculado a um 
+número de porta para que a camada TCP possa identificar o aplicativo 
+para o qual os dados serão enviados.

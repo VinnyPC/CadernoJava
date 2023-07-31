@@ -1,0 +1,69 @@
+## Estrutura de memória Java
+
+A JVM define várias áreas de dados de tempo de execução que são usadas durante a execução de um programa. 
+Algumas das áreas são criadas pela JVM, enquanto outras são criadas pelos encadeamentos usados ​​em um programa.
+No entanto, a área de memória criada pela JVM é destruída somente quando a JVM sai. 
+As áreas de dados do thread são criadas durante a instanciação e destruídas quando o thread sai.
+
+Temos algumas partes da área de memória: Heap area, Method area, JVM Stack, Native Method Stack, PC Registers
+
+## Heap area:
+
+A área de heap é uma região de memória compartilhada por todas as threads em execução na 
+Máquina Virtual Java (JVM). É onde os objetos são alocados dinamicamente durante a execução do programa. 
+Os objetos criados usando a palavra-chave new ou através de frameworks como o Garbage Collector (GC) 
+são armazenados na área de heap. A alocação e desalocação de memória no heap são gerenciadas automaticamente 
+pelo GC.
+
+
+- É uma área de dados de tempo de execução compartilhada e armazena o objeto real em uma memória. 
+Ele é instanciado durante a inicialização da máquina virtual.
+
+- Essa memória é alocada para todas as instâncias de classe e array. 
+O heap pode ser de tamanho fixo ou dinâmico, dependendo da configuração do sistema.
+
+- A JVM fornece o controle do usuário para inicializar ou variar o tamanho do heap conforme o requisito. 
+Quando uma nova palavra-chave é usada, o objeto recebe um espaço na heap, 
+mas a referência do mesmo existe na stack.
+Existe apenas um heap para um processo JVM em execução.
+
+** Obs.: A coleta de lixo na área da heap é obrigatória. **
+
+Scanner sc = new Scanner(System.in);
+A instrução acima cria o objeto da classe Scanner que é alocado para o heap, 
+enquanto a referência 'sc' é enviada para a stack.
+
+---------------------------------------------------------------------------------------
+## Method Area (Área de Método):
+
+Armazena informações sobre as classes, interfaces, métodos e campos do programa. 
+Isso inclui o código dos métodos, constantes, detalhes de acesso, informações de 
+superclasses, entre outras informações relacionadas à estrutura e execução das classes Java. 
+A área de método é compartilhada por todas as threads e é criada quando a JVM é iniciada.
+Pode ser de tamanho fixo ou expandido conforme exigido pelo cálculo. Não precisa ser contíguo.
+Nota: Embora a área do método seja logicamente uma parte do heap, ela pode ou não ser coletada como lixo, 
+mesmo que a coleta de lixo seja obrigatória na área do heap.
+---------------------------------------------------------------------------------------
+## JVM Stack (Pilha da JVM):
+
+Cada thread na JVM possui sua própria pilha, chamada de JVM stack. Essa pilha contém frames de ativação 
+para cada método em execução na thread. Um frame de ativação é criado sempre que um método é chamado e 
+contém informações sobre os parâmetros do método, variáveis locais e endereço de retorno. O frame é empilhado 
+no topo da pilha quando o método é chamado e desempilhado quando o método é concluído. 
+A JVM stack segue uma política LIFO (Last In, First Out) para gerenciar a execução das chamadas de métodos.
+---------------------------------------------------------------------------------------
+## Native Method Stack (Pilha de Método Nativo):
+
+Assim como a JVM stack, cada thread também possui sua própria pilha de método nativo (native method stack). 
+Essa pilha é usada para métodos escritos em linguagens nativas, como C ou C++, que são chamados 
+a partir do código Java usando o recurso chamado JNI (Java Native Interface). A pilha de método 
+nativo é separada da JVM stack, uma vez que a execução de código nativo é tratada de maneira diferente pela JVM.
+---------------------------------------------------------------------------------------
+## PC Registers (Registradores PC):
+
+Os PC registers são uma parte importante do funcionamento interno da JVM. 
+Eles armazenam os endereços das instruções sendo executadas atualmente pela thread. 
+Cada thread tem seus próprios PC registers, permitindo que a JVM execute várias threads 
+concorrentemente. Os PC registers são usados para garantir a sincronização adequada e 
+o avanço da execução do código nas threads.
+

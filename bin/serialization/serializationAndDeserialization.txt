@@ -1,0 +1,43 @@
+A serialização é um mecanismo de conversão do estado de um objeto em um fluxo de bytes. 
+A desserialização é o processo inverso em que o fluxo de bytes é usado para recriar o 
+objeto Java real na memória. Esse mecanismo é usado para persistir o objeto.
+
+O fluxo de bytes criado é independente de plataforma.
+
+Para tornar um objeto Java serializável, implementamos a interface java.io.Serializable
+
+A classe ObjectOutputStream contém o método writeObject() para serializar um objeto.
+public final void writeObject(Object obj) throws IOException
+
+The ObjectInputStream class contains readObject() method for deserializing an object.
+public final Object readObject()
+                  throws IOException,
+               ClassNotFoundException
+               
+Vantagens da Serialização 
+
+1. Para salvar/persistir no estado de um objeto. 
+2. Viajar um objeto através de uma rede.
+
+Pontos para lembrar 
+
+1. Se uma classe pai implementou a interface Serializable, então a classe filha não 
+precisa implementá-la, mas vice-versa não é verdade.
+
+2. Somente membros de dados não estáticos são salvos por meio do processo de serialização. 
+
+3. Os membros de dados estáticos e os membros de dados transitórios não são salvos 
+por meio do processo de serialização. Portanto, se você não deseja salvar o valor 
+de um membro de dados não estáticos, torne-o transitório. 
+
+4. O construtor do objeto nunca é chamado quando um objeto é desserializado.
+
+5. Os objetos associados devem estar implementando a interface Serializável. Exemplo :
+
+class A implements Serializable{
+
+// B also implements Serializable
+// interface.
+B ob=new B();  
+}        
+                       

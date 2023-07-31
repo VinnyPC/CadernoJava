@@ -32,9 +32,8 @@ Array é um tipo de estrutura de dados que contém um número fixo de valores de
 
 ## ArrayList - ArrayList<T> nomeDoArray = new ArrayList<T>();
 
-é a escolha natural quando for necessário usar um vetor redimensionável, 
-que é muito mais eficiente para leitura, por ser implementado internamente 
-com vetores, o que a torna ideal para o acesso aleatório aos dados armazenados.
+** Use quando precisar de uma lista redimensionavel, onde voce adiciona e remove elementos com frequencia, e nao
+precisa de acesso rápido aleatorio aos elementos
 
 Principais métodos:
 add(Objeto)	Adiciona um objeto no final da lista.
@@ -51,13 +50,16 @@ sort(null)	Ordena os elementos da lista em ordem crescente.
 sort(Comparator.reverseOrder())	Ordena os elementos da lista em ordem decrescente.
 
 ----------------------------------------------------------------------
-## LinkedList - LinkedList ll = new LinkedList(); https://www.geeksforgeeks.org/linked-list-in-java/
+## LinkedList - LinkedList nomeDaList = new LinkedList(); https://www.geeksforgeeks.org/linked-list-in-java/
 
 É uma estrutura de dados linear, na qual os elementos não são armazenados em locais de memória 
 contíguos (sequenciais). Os elementos em uma lista vinculada são vinculados usando ponteiros 
 internamente, que "apontam" para o endereço de Memória do próximo item 
 (SimpleLinkedList - Lista Vinculada simples) ou para o endereço de Memória do próximo item 
 e do item anterior (DoubleLinkedList - Lista Duplamente Vinculada).
+
+** Use quando precisar de uma lista onde voce frequentemente adiciona e remove elementos do inicio de acesso
+rapido a elementos proximos
 ----------------------------------------------------------------------
 
 ## Stack
@@ -103,6 +105,8 @@ hashcode()	Retorna o Hashcode do elemento.
 seus elementos não são ordenados. Essa implementação é indicada se você precisa 
 apenas garantir a alta performance sem se importar com a ordem com que os elementos 
 estão ordenados.
+
+** Usamos quando precisar de uma coleção que nao permite duplicatos e a ordem dos elementos não é importante
 ----------------------------------------------------------------------
 
 ## TreeSet
@@ -111,6 +115,8 @@ implementa um algoritmo conhecido como árvore. Sua principal característica
 os elementos da Collection ordenados automaticamente, independente da ordem que 
 você inserir os elementos. Essa Ordenação dos elementos tem um custo de performance 
 em relação a implementação HashSet.
+
+** Usamos quando precisar de uma coleção que nao permite duplicatos em ordem natural ou definida por um comparador
 ----------------------------------------------------------------------
 
 ## LinkedHashSet 
@@ -119,10 +125,12 @@ performance do HashSet e um pouco do poder de ordenação do TreeSet. Os element
 são mantidos na ordem em que são inseridos na Collection. A implementação LinkedHashSet 
 implementa a Interface NavigableSet, que oferece uma série de Métodos para percorrer e 
 iterar sobre a Collection tanto na ordem crescente, quanto na ordem decrescente.
+
+** Usamos quando precisar de uma coleção que nao permite duplicatos e mantem a ordem dos elementos
 -----------------------------------------------------------------------------------------------------
 
 ## Map
-ao invés de utilizar números inteiros como índices, 
+Ao invés de utilizar números inteiros como índices,
 objetos são utilizados como chaves para recuperar os 
 elementos armazenados nesta Collection. As chaves não 
 podem se repetir (seguindo o mesmo princípio da interface Set), 
